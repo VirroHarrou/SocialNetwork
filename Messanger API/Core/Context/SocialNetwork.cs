@@ -17,6 +17,7 @@ namespace Messanger_API.Core.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Social-Network;Integrated Security=True");
+            optionsBuilder.UseSqlServer();
         }
     }
 }

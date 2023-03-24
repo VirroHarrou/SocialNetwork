@@ -1,4 +1,5 @@
 using Messanger_API.Core.Context;
+using Microsoft.Identity.Client;
 
 namespace Messanger_API
 {
@@ -26,7 +27,7 @@ namespace Messanger_API
             }
 
             app.UseHttpsRedirection();
-
+            app.UseRouting();
             app.UseAuthorization();
 
 
