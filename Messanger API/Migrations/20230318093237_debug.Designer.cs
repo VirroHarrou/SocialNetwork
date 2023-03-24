@@ -4,16 +4,19 @@ using Messanger_API.Core.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace SocialNetworkAPI.Migrations
+namespace Messanger_API.Migrations
 {
     [DbContext(typeof(SocialNetworkContext))]
-    partial class MessangerContextModelSnapshot : ModelSnapshot
+    [Migration("20230318093237_debug")]
+    partial class debug
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

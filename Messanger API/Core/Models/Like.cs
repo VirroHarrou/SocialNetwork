@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Messanger_API.Core.Models
 {
+
     public class Like
     {
+        [Key]
         public Guid Id { get; set; }
-        [Required]
-        public Guid UserId { get; set; }
-        [Required]
         public Guid NewsId { get; set; }
+        public News News { get; set; }
     }
 }

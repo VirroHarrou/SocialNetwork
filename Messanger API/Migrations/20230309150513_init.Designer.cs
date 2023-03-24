@@ -11,7 +11,7 @@ using Messanger_API.Core.Context;
 
 namespace Messanger_API.Migrations
 {
-    [DbContext(typeof(MessangerContext))]
+    [DbContext(typeof(SocialNetworkContext))]
     [Migration("20230309150513_init")]
     partial class init
     {

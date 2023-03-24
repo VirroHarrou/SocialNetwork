@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Messanger_API.Migrations
 {
-    [DbContext(typeof(MessangerContext))]
+    [DbContext(typeof(SocialNetworkContext))]
     [Migration("20230310092448_OnlyUser")]
     partial class OnlyUser
     {

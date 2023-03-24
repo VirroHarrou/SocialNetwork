@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Messanger_API.Core.Models
 {
@@ -7,13 +8,14 @@ namespace Messanger_API.Core.Models
         [Key]
         public Guid Id { get; set; }
         public string? Topic { get; set; }
-        [Required]
+        [NotNull]
         public string MainText { get; set; }
-        [Required]
+        [NotNull]
         public string ImageUrl { get; set; }
         public DateTime CreatedAt => DateTime.Now;
         public DateTime? UpdatedAt { get; }
         public Guid UserId { get; set; }
         public User User { get; set; }
+        public ICollection<Like> Likes { get; set; }
     }
 }

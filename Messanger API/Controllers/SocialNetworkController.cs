@@ -21,7 +21,7 @@ namespace Messanger_API.Controllers
         [HttpGet("feed")]
         public async Task<ActionResult<News>> GetNews()
         {
-            using (var db = new MessangerContext())
+            using (var db = new SocialNetworkContext())
             {
                 if (await db.News.CountAsync() < 1)
                     return NotFound();
@@ -38,7 +38,7 @@ namespace Messanger_API.Controllers
             if (news == null)
                 return BadRequest();
 
-            using (var db = new MessangerContext())
+            using (var db = new SocialNetworkContext())
             {
                 await db.AddAsync(news);
                 await db.SaveChangesAsync();
@@ -50,7 +50,7 @@ namespace Messanger_API.Controllers
         [HttpGet("favorite")] //Переделать метод, для вывода "лучших" новостей
         public async Task<ActionResult<News>> GetFavoriteNews()
         {
-            using (var db = new MessangerContext())
+            using (var db = new SocialNetworkContext())
             {
                 if (await db.News.CountAsync() < 1)
                     return NotFound();
@@ -67,7 +67,7 @@ namespace Messanger_API.Controllers
             if (Newuser == null)
                 return BadRequest();
 
-            using (var db = new MessangerContext())
+            using (var db = new SocialNetworkContext())
             {
                 var user = await db.Users
                     .Where(u => u.Id == Newuser.Id)
