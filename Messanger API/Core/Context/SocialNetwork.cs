@@ -1,14 +1,15 @@
 ﻿using Messanger_API.Core.Models;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Messanger_API.Core.Context
 {
     public class SocialNetworkContext : DbContext
     {
-        public SocialNetworkContext()
-        {
+        public IConfiguration AppConfiguration { get; }
 
-        }
+        public SocialNetworkContext(IConfiguration configuration) =>
+            AppConfiguration = configuration;
 
         public DbSet<User> Users { get; set; }
         public DbSet<News> News { get; set; }
@@ -16,8 +17,9 @@ namespace Messanger_API.Core.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Social-Network;Integrated Security=True");
-            optionsBuilder.UseSqlServer();
+            var ConnectionString = AppConfiguration.GetConnectionString("DebugConnection");
+
+            optionsBuilder.UseSqlServer(ConnectionString);
         }
     }
 }

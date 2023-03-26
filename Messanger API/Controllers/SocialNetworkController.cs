@@ -2,8 +2,6 @@
 using Messanger_API.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace Messanger_API.Controllers
 {
@@ -12,24 +10,24 @@ namespace Messanger_API.Controllers
     public class SocialNetworkController : Controller
     {
         private readonly ILogger _logger;
+        private readonly SocialNetworkContext _context;
 
-        public SocialNetworkController(ILogger<SocialNetworkController> logger)
+        public SocialNetworkController(ILogger<SocialNetworkController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _context = new SocialNetworkContext(configuration);
         }
 
         [HttpGet("feed")]
         public async Task<ActionResult<News>> GetNews()
         {
-            using (var db = new SocialNetworkContext())
-            {
-                if (await db.News.CountAsync() < 1)
-                    return NotFound();
+            using var db = _context;
+            if (await db.News.CountAsync() < 1)
+                return NotFound();
 
-                var result = await db.News
-                    .ToListAsync();
-                return new ObjectResult(result);
-            }
+            var result = await db.News
+                .ToListAsync();
+            return new ObjectResult(result);
         }
 
         [HttpPost("feed")]
@@ -38,7 +36,7 @@ namespace Messanger_API.Controllers
             if (news == null)
                 return BadRequest();
 
-            using (var db = new SocialNetworkContext())
+            using (var db = _context)
             {
                 await db.AddAsync(news);
                 await db.SaveChangesAsync();
@@ -50,42 +48,34 @@ namespace Messanger_API.Controllers
         [HttpGet("favorite")] //Переделать метод, для вывода "лучших" новостей
         public async Task<ActionResult<News>> GetFavoriteNews()
         {
-            using (var db = new SocialNetworkContext())
-            {
-                if (await db.News.CountAsync() < 1)
-                    return NotFound();
+            using var db = _context;
+            if (await db.News.CountAsync() < 1)
+                return NotFound();
 
-                var result = await db.News
-                    .ToListAsync();
-                return new ObjectResult(result);
-            }
+            var result = await db.News
+                .ToListAsync();
+            return new ObjectResult(result);
         }
 
         [HttpPost("registration")]
         public async Task<ActionResult> RegUser(User Newuser)
         {
             if (Newuser == null)
-                return BadRequest();
+                return BadRequest("Is empty!");
 
-            using (var db = new SocialNetworkContext())
+            using (var db = _context)
             {
                 var user = await db.Users
                     .Where(u => u.Id == Newuser.Id)
                     .FirstOrDefaultAsync();
 
                 if (user != null)
-                    return BadRequest("User already exists");
+                    return BadRequest("User already exists!");
 
                 await db.AddAsync(Newuser);
                 await db.SaveChangesAsync();
             }
 
-            return Ok();
-        }
-
-        [HttpPost("login")]
-        public async Task<ActionResult> LoginUser(User user)
-        {
             return Ok();
         }
     }
