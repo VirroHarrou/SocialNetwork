@@ -7,13 +7,13 @@ namespace Messanger_API.Core.Models
     {
         [Key]
         public Guid Id { get; set; }
+        [NotNull]
         public string? Topic { get; set; }
         [NotNull]
         public string MainText { get; set; }
-        [NotNull]
         public string ImageUrl { get; set; }
-        public DateTime CreatedAt => DateTime.Now;
-        public DateTime? UpdatedAt { get; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public Guid UserId { get; set; }
         public User User { get; set; }
         public ICollection<Like> Likes { get; set; }
