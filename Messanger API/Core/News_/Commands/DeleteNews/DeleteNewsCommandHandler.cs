@@ -1,20 +1,14 @@
 ﻿using MediatR;
-using Messanger_API.Core.Models;
-using Microsoft.EntityFrameworkCore;
+using SocialNetwork.Core.Interfaces;
 using SocialNetwork.Domain.CustomExceptions;
-using SocialNetwork.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SocialNetwork.Domain.Models;
 
 namespace SocialNetwork.Core.News_.Commands.DeleteNews
 {
     public class DeleteNewsCommandHandler : IRequestHandler<DeleteNewsCommand>
     {
         private readonly INewsDbContext _context;
-        public DeleteNewsCommandHandler(INewsDbContext context) => 
+        public DeleteNewsCommandHandler(INewsDbContext context) =>
             _context = context;
 
         public async Task Handle(DeleteNewsCommand request, CancellationToken cancellationToken)

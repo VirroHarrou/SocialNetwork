@@ -1,7 +1,7 @@
-﻿using Messanger_API.Core.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using SocialNetwork.Domain.Models;
 
-namespace SocialNetwork.Interfaces
+namespace SocialNetwork.Core.Interfaces
 {
     public interface ILikeDbContext
     {

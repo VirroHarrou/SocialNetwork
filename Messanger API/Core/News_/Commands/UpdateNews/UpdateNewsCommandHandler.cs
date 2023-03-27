@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using Messanger_API.Core.Models;
 using Microsoft.EntityFrameworkCore;
+using SocialNetwork.Core.Interfaces;
 using SocialNetwork.Core.News_.Commands.CreateNews.UpdateNews;
 using SocialNetwork.Domain.CustomExceptions;
-using SocialNetwork.Interfaces;
+using SocialNetwork.Domain.Models;
 
 namespace SocialNetwork.Core.News_.Commands.UpdateNews
 {

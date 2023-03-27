@@ -1,6 +1,6 @@
-﻿using Messanger_API.Core.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SocialNetwork.Domain.Models;
 
 namespace SocialNetwork.Interfaces.Configurations
 {

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Messanger_API.Core.Models
+namespace SocialNetwork.Domain.Models
 {
 
     public class Like
@@ -10,6 +10,8 @@ namespace Messanger_API.Core.Models
         [Key]
         public Guid Id { get; set; }
         public Guid NewsId { get; set; }
+        public Guid UserId { get; set; }
         public News News { get; set; }
+        public User User { get; set; }
     }
 }

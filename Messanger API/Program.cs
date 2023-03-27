@@ -1,6 +1,3 @@
-using Messanger_API.Core.Context;
-using Microsoft.Identity.Client;
-
 namespace Messanger_API
 {
     public class Program

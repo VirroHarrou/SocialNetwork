@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Messanger_API.Core.Models;
 using SocialNetwork.Common.Mappings;
+using SocialNetwork.Domain.Models;
 
 namespace SocialNetwork.Core.News_.Queries.GetNewsDetails
 {

@@ -2,12 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using SocialNetwork.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SocialNetwork.Core.Interfaces;
 
 namespace SocialNetwork.Core.News_.Queries.GetNewsList
 {

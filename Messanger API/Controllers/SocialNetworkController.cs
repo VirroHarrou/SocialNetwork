@@ -1,7 +1,7 @@
-﻿using Messanger_API.Core.Context;
-using Messanger_API.Core.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SocialNetwork.Domain.Context;
+using SocialNetwork.Domain.Models;
 
 namespace Messanger_API.Controllers
 {
@@ -12,10 +12,9 @@ namespace Messanger_API.Controllers
         private readonly ILogger _logger;
         private readonly SocialNetworkContext _context;
 
-        public SocialNetworkController(ILogger<SocialNetworkController> logger, IConfiguration configuration)
+        public SocialNetworkController(ILogger<SocialNetworkController> logger)
         {
             _logger = logger;
-            _context = new SocialNetworkContext(configuration);
         }
 
         [HttpGet("feed")]

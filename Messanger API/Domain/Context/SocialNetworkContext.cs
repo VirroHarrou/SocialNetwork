@@ -1,10 +1,9 @@
-﻿using Messanger_API.Core.Models;
-using Microsoft.EntityFrameworkCore;
-using SocialNetwork.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SocialNetwork.Domain.Models;
+using SocialNetwork.Core.Interfaces;
 using SocialNetwork.Interfaces.Configurations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Messanger_API.Core.Context
+namespace SocialNetwork.Domain.Context
 {
     public class SocialNetworkContext : DbContext, INewsDbContext, ILikeDbContext, IUserDbContext
     {

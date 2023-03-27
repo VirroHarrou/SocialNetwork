@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Messanger_API.Core.Models
+namespace SocialNetwork.Domain.Models
 {
     [Index(nameof(Username), IsUnique = true)]
     public class User

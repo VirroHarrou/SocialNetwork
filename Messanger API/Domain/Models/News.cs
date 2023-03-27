@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Messanger_API.Core.Models
+namespace SocialNetwork.Domain.Models
 {
     public class News
     {

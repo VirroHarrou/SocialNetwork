@@ -1,7 +1,6 @@
 ﻿using MediatR;
-using Messanger_API.Core.Models;
-using SocialNetwork.Interfaces;
-using System.Runtime.CompilerServices;
+using SocialNetwork.Core.Interfaces;
+using SocialNetwork.Domain.Models;
 
 namespace SocialNetwork.Core.News_.Commands.CreateNews
 {
@@ -9,7 +8,7 @@ namespace SocialNetwork.Core.News_.Commands.CreateNews
     {
         private readonly INewsDbContext _dbContext;
 
-        public CreateNewsCommandHandler(INewsDbContext dbContext) => 
+        public CreateNewsCommandHandler(INewsDbContext dbContext) =>
             _dbContext = dbContext;
 
         public async Task<Guid> Handle(CreateNewsCommand request, CancellationToken cancellationToken)

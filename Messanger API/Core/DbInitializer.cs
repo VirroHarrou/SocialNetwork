@@ -1,4 +1,4 @@
-﻿using Messanger_API.Core.Context;
+﻿using SocialNetwork.Domain.Context;
 
 namespace SocialNetwork.Core
 {
