@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SocialNetwork.Core.News_.Commands.CreateNews;
-using SocialNetwork.Core.News_.Commands.CreateNews.UpdateNews;
+using SocialNetwork.Core.News_.Commands.UpdateNews;
 using SocialNetwork.Core.News_.Commands.DeleteNews;
 using SocialNetwork.Core.News_.Queries.GetNewsDetails;
 using SocialNetwork.Core.News_.Queries.GetNewsList;

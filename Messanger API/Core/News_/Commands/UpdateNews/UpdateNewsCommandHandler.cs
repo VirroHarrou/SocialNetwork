@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Core.Interfaces;
-using SocialNetwork.Core.News_.Commands.CreateNews.UpdateNews;
 using SocialNetwork.Domain.CustomExceptions;
 using SocialNetwork.Domain.Models;
 

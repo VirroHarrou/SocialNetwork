@@ -1,6 +1,9 @@
+using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Common.Mappings;
 using SocialNetwork.Core;
+using SocialNetwork.Core.Common.Behaviors;
 using SocialNetwork.Core.Interfaces;
 using SocialNetwork.Domain.Context;
 using System.Reflection;
@@ -45,6 +48,9 @@ namespace Messanger_API
                     policy.AllowAnyOrigin();
                 });
             });
+
+            builder.Services.AddValidatorsFromAssemblies(new[] { Assembly.GetExecutingAssembly() });
+            builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
             builder.Services.AddScoped<INewsDbContext>(provider => provider.GetService<SocialNetworkContext>());
             builder.Services.AddScoped<ILikeDbContext>(provider => provider.GetService<SocialNetworkContext>());

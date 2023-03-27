@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SocialNetwork.Core.News_.Commands.CreateNews.UpdateNews
+namespace SocialNetwork.Core.News_.Commands.UpdateNews
 {
     public class UpdateNewsCommand : IRequest
     {
