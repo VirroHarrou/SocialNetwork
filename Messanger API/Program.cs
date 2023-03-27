@@ -15,17 +15,17 @@ namespace Messanger_API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            try //Возможно не будет работать
+            try
             {
                 var context = builder.Services.BuildServiceProvider()
                     .GetRequiredService<SocialNetworkContext>();
                 DbInitializer.Initialize(context);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
-            
+
             builder.Services.AddAutoMapper(config =>
             {
                 config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));

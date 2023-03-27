@@ -19,7 +19,7 @@ namespace SocialNetwork.Core.News_.Queries.GetNewsDetails
             var entity = await _context.News
                 .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 
-            if (entity == null || entity.UserId != request.UserId)
+            if (entity == null)
             {
                 throw new NotFoundException(nameof(News), request.Id);
             }

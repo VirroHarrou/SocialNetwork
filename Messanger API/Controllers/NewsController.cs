@@ -23,7 +23,6 @@ namespace SocialNetwork.Controllers
         {
             var query = new GetNewsDetailsQuery
             {
-                UserId = UserId,
                 Id = id
             };
             var vm = await Mediator.Send(query);
