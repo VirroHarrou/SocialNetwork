@@ -17,7 +17,9 @@ namespace SocialNetwork.Core.News_.Queries.GetNewsList
         public async Task<NewsListVm> Handle(GetNewsListQuery request, CancellationToken cancellationToken)
         {
             var newsQuery = await _context.News
-                .Where(news => news.UserId == request.UserId)
+                .OrderBy(x => x.CreatedAt)
+                .Skip(request.Skip)
+                .Take(request.Count)
                 .ProjectTo<NewsLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

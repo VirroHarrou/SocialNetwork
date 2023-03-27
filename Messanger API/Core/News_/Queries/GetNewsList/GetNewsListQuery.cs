@@ -9,6 +9,7 @@ namespace SocialNetwork.Core.News_.Queries.GetNewsList
 {
     public class GetNewsListQuery : IRequest<NewsListVm>
     {
-        public Guid UserId { get; set; }
+        public int Count { get; set; }
+        public int Skip { get; set; }
     }
 }
