@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialNetwork", "Messanger API\SocialNetwork.csproj", "{2E08983A-77F4-4910-923F-3FAC7CD36C64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialNetwork", "SocialNetwork\SocialNetwork.csproj", "{2E08983A-77F4-4910-923F-3FAC7CD36C64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.Identity", "SocialNetwork.Identity\SocialNetwork.Identity.csproj", "{11E33818-7641-4C71-94C8-14A720DB9C37}"
 EndProject
