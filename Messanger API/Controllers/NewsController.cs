@@ -6,6 +6,7 @@ using SocialNetwork.Core.News_.Commands.DeleteNews;
 using SocialNetwork.Core.News_.Queries.GetNewsDetails;
 using SocialNetwork.Core.News_.Queries.GetNewsList;
 using SocialNetwork.Domain.WorkModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SocialNetwork.Controllers
 {
@@ -40,6 +41,7 @@ namespace SocialNetwork.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateNewsDto createNewsDto)
         {
             var command = _mapper.Map<CreateNewsCommand>(createNewsDto);
@@ -49,6 +51,7 @@ namespace SocialNetwork.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateNewsDto updateNewsDto)
         {
             var command = _mapper.Map<UpdateNewsCommand>(updateNewsDto);
@@ -58,6 +61,7 @@ namespace SocialNetwork.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteNewsCommand

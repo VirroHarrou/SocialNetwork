@@ -1,11 +1,13 @@
 using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Common.Mappings;
 using SocialNetwork.Core;
 using SocialNetwork.Core.Common.Behaviors;
 using SocialNetwork.Core.Interfaces;
 using SocialNetwork.Domain.Context;
+using SocialNetwork.Domain.Middleware;
 using System.Reflection;
 
 namespace Messanger_API
@@ -18,17 +20,20 @@ namespace Messanger_API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            try
+            using (var scope = builder.Services.BuildServiceProvider())
             {
-                var context = builder.Services.BuildServiceProvider()
-                    .GetRequiredService<SocialNetworkContext>();
-                DbInitializer.Initialize(context);
+                try
+                {
+                    var context = scope
+                        .GetRequiredService<SocialNetworkContext>();
+                    DbInitializer.Initialize(context);
+                }
+                catch (Exception ex)
+                {
+                    var logger = scope.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred while app initialization");
+                }
             }
-            catch (Exception ex)
-            {
-
-            }
-
             builder.Services.AddAutoMapper(config =>
             {
                 config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
@@ -48,6 +53,18 @@ namespace Messanger_API
                     policy.AllowAnyOrigin();
                 });
             });
+
+            builder.Services.AddAuthentication(config =>
+            {
+                config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "http://localhost:60398";
+                    options.Audience = "SocialNetworkWebApi";
+                    options.RequireHttpsMetadata = false;
+                });
 
             builder.Services.AddValidatorsFromAssemblies(new[] { Assembly.GetExecutingAssembly() });
             builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
@@ -70,9 +87,11 @@ namespace Messanger_API
                 app.UseSwaggerUI();
             }
 
+            app.UseCustomExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("AllowAll");
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
