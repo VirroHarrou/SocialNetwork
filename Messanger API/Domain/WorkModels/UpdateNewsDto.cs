@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SocialNetwork.Common.Mappings;
+using SocialNetwork.Core.Common.Mappings;
 using SocialNetwork.Core.News_.Commands.UpdateNews;
 
 namespace SocialNetwork.Domain.WorkModels

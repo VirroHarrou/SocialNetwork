@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace SocialNetwork.Common.Mappings
+namespace SocialNetwork.Core.Common.Mappings
 {
     public interface IMapWith<T>
     {

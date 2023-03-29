@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SocialNetwork.Domain.Models;
 
-namespace SocialNetwork.Interfaces.Configurations
+namespace SocialNetwork.Core.Configurations
 {
     public class NewsConfiguration : IEntityTypeConfiguration<News>
     {

@@ -2,15 +2,15 @@ using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using SocialNetwork.Common.Mappings;
 using SocialNetwork.Core;
 using SocialNetwork.Core.Common.Behaviors;
+using SocialNetwork.Core.Common.Mappings;
 using SocialNetwork.Core.Interfaces;
 using SocialNetwork.Domain.Context;
 using SocialNetwork.Domain.Middleware;
 using System.Reflection;
 
-namespace Messanger_API
+namespace SocialNetwork
 {
     public class Program
     {

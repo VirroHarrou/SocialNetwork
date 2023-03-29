@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SocialNetwork.Common.Mappings;
+using SocialNetwork.Core.Common.Mappings;
 using SocialNetwork.Domain.Models;
 
 namespace SocialNetwork.Core.News_.Queries.GetNewsList

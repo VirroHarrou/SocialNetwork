@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SocialNetwork.Domain.Models;
+using SocialNetwork.Core.Configurations;
 using SocialNetwork.Core.Interfaces;
-using SocialNetwork.Interfaces.Configurations;
+using SocialNetwork.Domain.Models;
 
 namespace SocialNetwork.Domain.Context
 {

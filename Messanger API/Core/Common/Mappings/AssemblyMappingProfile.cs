@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using System.Reflection;
 
-namespace SocialNetwork.Common.Mappings
+namespace SocialNetwork.Core.Common.Mappings
 {
     public class AssemblyMappingProfile : Profile //разобраться в том что тут происходит
     {
