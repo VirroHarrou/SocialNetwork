@@ -9,9 +9,8 @@ namespace SocialNetwork.Domain.Models
     {
         [Key]
         public Guid Id { get; set; }
-        public Guid? NewsId { get; set; }
-        public Guid? UserId { get; set; }
-        public News? News { get; set; }
-        public User? User { get; set; }
+        public Guid NewsId { get; set; }
+        public Guid UserId { get; set; }
+        public News News { get; set; }
     }
 }

@@ -5,12 +5,11 @@ using SocialNetwork.Domain.Models;
 
 namespace SocialNetwork.Domain.Context
 {
-    public class SocialNetworkContext : DbContext, INewsDbContext, ILikeDbContext, IUserDbContext
+    public class SocialNetworkContext : DbContext, INewsDbContext, ILikeDbContext
     {
         public SocialNetworkContext(DbContextOptions<SocialNetworkContext> options)
             : base(options) { }
 
-        public DbSet<User> Users { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Like> Likes { get; set; }
 
@@ -18,7 +17,6 @@ namespace SocialNetwork.Domain.Context
         {
             builder.ApplyConfiguration(new NewsConfiguration());
             builder.ApplyConfiguration(new LikeConfiguration());
-            builder.ApplyConfiguration(new UserConfiguration());
             base.OnModelCreating(builder);
         }
     }

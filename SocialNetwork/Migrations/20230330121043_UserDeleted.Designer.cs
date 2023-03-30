@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SocialNetwork.Domain.Context;
 
 #nullable disable
 
-namespace SocialNetworkAPI.Migrations
+namespace Messanger_API.Migrations
 {
     [DbContext(typeof(SocialNetworkContext))]
-    partial class MessangerContextModelSnapshot : ModelSnapshot
+    [Migration("20230330121043_UserDeleted")]
+    partial class UserDeleted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
