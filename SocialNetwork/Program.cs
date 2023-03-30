@@ -1,13 +1,16 @@
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using SocialNetwork.Core;
 using SocialNetwork.Core.Common.Behaviors;
 using SocialNetwork.Core.Common.Mappings;
 using SocialNetwork.Core.Interfaces;
 using SocialNetwork.Domain.Context;
 using SocialNetwork.Domain.Middleware;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 
 namespace SocialNetwork
@@ -74,28 +77,46 @@ namespace SocialNetwork
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
             builder.Services.AddControllers();
+            builder.Services.AddApiVersioning();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddVersionedApiExplorer(options =>
+                options.GroupNameFormat = "'v'VVV");
+            builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+            builder.Services.AddSwaggerGen(config =>
+            {
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                config.IncludeXmlComments(xmlPath);
+            });
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseDeveloperExceptionPage();
             }
-
+            app.UseSwagger();
+            var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+            app.UseSwaggerUI(config =>
+            {              
+                foreach(var desciption in provider.ApiVersionDescriptions)
+                {
+                    config.SwaggerEndpoint($"{desciption.GroupName}/swagger.json",
+                        $"Social Network API - {desciption.GroupName.ToUpperInvariant()}");
+                    config.RoutePrefix = "swagger";
+                }               
+            });
             app.UseCustomExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("AllowAll");
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseApiVersioning();
 
-
-            app.MapControllers();
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             app.Run();
         }
