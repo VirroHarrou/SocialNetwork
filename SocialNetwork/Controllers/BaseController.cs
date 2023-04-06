@@ -5,7 +5,7 @@ using System.Security.Claims;
 namespace SocialNetwork.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/[action]")]
+    [Route("api={version:apiVersion}/[controller]/[action]")]
     public abstract class BaseController : ControllerBase
     {
         private IMediator _mediator;

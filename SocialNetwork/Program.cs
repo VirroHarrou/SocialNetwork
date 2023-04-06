@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using SocialNetwork.Core;
+using SocialNetwork.Core.Common;
 using SocialNetwork.Core.Common.Behaviors;
 using SocialNetwork.Core.Common.Mappings;
 using SocialNetwork.Core.Interfaces;

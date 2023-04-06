@@ -1,6 +1,6 @@
 ﻿using SocialNetwork.Domain.Context;
 
-namespace SocialNetwork.Core
+namespace SocialNetwork.Core.Common
 {
     public class DbInitializer
     {

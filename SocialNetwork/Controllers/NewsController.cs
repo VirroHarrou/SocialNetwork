@@ -12,7 +12,7 @@ namespace SocialNetwork.Controllers
 {
     [ApiVersion("1.0")]
     [Produces("application/json")]
-    [Route("api/{version:apiVersion}[controller]")]
+    [Route("api={version:apiVersion}/[controller]")]
     public class NewsController : BaseController
     {
         private readonly IMapper _mapper;
@@ -31,7 +31,7 @@ namespace SocialNetwork.Controllers
         /// <returns>Returns NewsListVm</returns>
         /// <response code="200">Success</response>
         /// <response code="401">If the user is unauthorized</response>
-        [HttpGet]
+        [HttpGet("List/{count}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<NewsListVm>> GetAll(int count, int? skip)
