@@ -7,6 +7,9 @@ using SocialNetwork.Identity.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<AuthDbContext>(options => options
+                .UseNpgsql(builder.Configuration.GetConnectionString("DbConnection")));
+
 using (var scope = builder.Services.BuildServiceProvider())
 {
     try
@@ -22,8 +25,7 @@ using (var scope = builder.Services.BuildServiceProvider())
     }
 }
 
-builder.Services.AddDbContext<AuthDbContext>(options => options
-                .UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
+
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(config =>
 {

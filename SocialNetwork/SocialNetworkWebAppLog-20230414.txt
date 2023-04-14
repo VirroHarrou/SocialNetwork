@@ -1,0 +1,38 @@
+2023-04-14 22:56:29.449 +03:00 [FTL] An error occurred while app initialization
+System.InvalidOperationException: No service for type 'SocialNetwork.Domain.Context.SocialNetworkContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at SocialNetwork.Program.Main(String[] args) in C:\Users\Virro\source\repos\Messanger API\SocialNetwork\Program.cs:line 40
+2023-04-14 22:56:29.810 +03:00 [INF] User profile is available. Using 'C:\Users\Virro\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-14 22:56:29.995 +03:00 [INF] Now listening on: https://localhost:7034
+2023-04-14 22:56:29.995 +03:00 [INF] Now listening on: http://localhost:5034
+2023-04-14 22:56:29.998 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-14 22:56:29.999 +03:00 [INF] Hosting environment: Development
+2023-04-14 22:56:29.999 +03:00 [INF] Content root path: C:\Users\Virro\source\repos\Messanger API\SocialNetwork\
+2023-04-14 22:56:30.992 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/swagger - -
+2023-04-14 22:56:31.114 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/swagger - - - 301 0 - 125.8896ms
+2023-04-14 22:56:31.124 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/swagger/index.html - -
+2023-04-14 22:56:31.431 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/swagger/index.html - - - 200 - text/html;charset=utf-8 306.8617ms
+2023-04-14 22:56:31.573 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/swagger/swagger-ui.css - -
+2023-04-14 22:56:31.573 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/swagger/swagger-ui-bundle.js - -
+2023-04-14 22:56:31.573 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/swagger/swagger-ui-standalone-preset.js - -
+2023-04-14 22:56:31.573 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/_vs/browserLink - -
+2023-04-14 22:56:31.573 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/_framework/aspnetcore-browser-refresh.js - -
+2023-04-14 22:56:31.586 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 13.0743ms
+2023-04-14 22:56:31.595 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-04-14 22:56:31.595 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-04-14 22:56:31.596 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/swagger/swagger-ui.css - - - 200 144929 text/css 22.8353ms
+2023-04-14 22:56:31.596 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 22.5916ms
+2023-04-14 22:56:31.622 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-04-14 22:56:31.623 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 49.9388ms
+2023-04-14 22:56:31.624 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.0705ms
+2023-04-14 22:56:31.831 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/swagger/v1/swagger.json - -
+2023-04-14 22:56:31.898 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/swagger/favicon-32x32.png - -
+2023-04-14 22:56:31.899 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-04-14 22:56:31.899 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/swagger/favicon-32x32.png - - - 200 628 image/png 0.3012ms
+2023-04-14 22:56:31.949 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 118.1501ms
+2023-04-14 22:56:36.412 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/_framework/aspnetcore-browser-refresh.js - -
+2023-04-14 22:56:36.412 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 0.3192ms
+2023-04-14 22:56:40.336 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7034/swagger/favicon-32x32.png - -
+2023-04-14 22:56:40.337 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-04-14 22:56:40.337 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7034/swagger/favicon-32x32.png - - - 200 628 image/png 0.2747ms

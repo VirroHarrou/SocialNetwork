@@ -22,6 +22,10 @@ namespace SocialNetwork
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
+            builder.Services.AddDbContext<SocialNetworkContext>(options => options
+                .UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             // Add services to the container.
             using (var scope = builder.Services.BuildServiceProvider())
             {
@@ -44,8 +48,7 @@ namespace SocialNetwork
                 config.AddProfile(new AssemblyMappingProfile(typeof(ILikeDbContext).Assembly));
             });
 
-            builder.Services.AddDbContext<SocialNetworkContext>(options => options
-                .UseSqlServer(builder.Configuration.GetConnectionString("DebugConnection")));
+            
 
             builder.Services.AddCors(opt =>
             {
