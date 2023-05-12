@@ -29,12 +29,12 @@ namespace SocialNetwork
                         {
                             Name = "Contact with me",
                             Email = string.Empty,
-                            Url = new Uri("https://t.me/EBAHXELb")
+                            Url = new Uri("https://...")
                         },
                         License = new OpenApiLicense
                         {
                             Name = "Ivan Fot",
-                            Url = new Uri("https://vk.com/virroharrou")
+                            Url = new Uri("https://...")
                         }
                     });
                 options.AddSecurityDefinition($"AuthToken {apiVersion}",
