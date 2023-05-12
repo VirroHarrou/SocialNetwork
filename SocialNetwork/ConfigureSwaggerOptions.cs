@@ -33,7 +33,7 @@ namespace SocialNetwork
                         },
                         License = new OpenApiLicense
                         {
-                            Name = "Ivan Fot",
+                            Name = "...",
                             Url = new Uri("https://...")
                         }
                     });
